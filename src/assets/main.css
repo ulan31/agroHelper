@@ -7,6 +7,13 @@
     src: url('./fonts/GolosText/GolosText-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Golos Text';
+    font-style: normal;
+    font-weight: 500;
+    src: url('./fonts/GolosText/GolosText-Bold.ttf') format('truetype');
+}
+
 :root {
     --font-family: 'Golos Text', sans-serif;
     --bg-color: #fff;
@@ -17,5 +24,6 @@ body {
     background-color: var(--bg-color);
     font-optical-sizing: auto;
     font-weight: 400;
+    font-size: 14px;
     font-style: normal;
 }
