@@ -1,0 +1,21 @@
+@import './base.css';
+
+@font-face {
+    font-family: 'Golos Text';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/GolosText/GolosText-Regular.ttf') format('truetype');
+}
+
+:root {
+    --font-family: 'Golos Text', sans-serif;
+    --bg-color: #fff;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
