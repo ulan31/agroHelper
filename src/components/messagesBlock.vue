@@ -18,8 +18,18 @@
         <div class="message-block">
             <span class="message-title">Storage_ID:</span> <span class="message-text">123</span>
         </div>
+        <date :date="'08/02/2024'" :time="'10:40'"/>
     </article>
 </template>
+
+<script>
+import date from "./date.vue";
+export default {
+    components: {
+        date
+    }
+}
+</script>
 
 <style scoped>
 .message {
@@ -28,6 +38,7 @@
     padding: 16px 10px 16px 10px;
     border-radius: 16px;
     margin: 16px 26px;
+    position: relative;
 }
 .message-block {
     display: flex;
