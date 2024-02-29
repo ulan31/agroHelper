@@ -9,6 +9,7 @@
         <span class="date">08/02/2024</span>
         <messages-block :message="message1"/>
         <messages-block :message="message2" class="mt-0"/>
+        <audio-file class="mt-0"/>
         <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
         <button-level-1 @openModal="openModal"/>
         <button-level-2 class="mt-16"/>
@@ -26,6 +27,7 @@ import buttonLevel1 from "@/components/buttonLevel1.vue";
 import buttonLevel2 from "@/components/buttonLevel2.vue";
 import footerBottom from "@/components/footerBottom.vue";
 import modal from "@/components/modalMessage.vue";
+import audioFile from "@/components/audoFile.vue";
 export default {
     components: {
         logo,
@@ -34,7 +36,8 @@ export default {
         buttonLevel1,
         buttonLevel2,
         footerBottom,
-        modal
+        modal,
+        audioFile
     },
     data() {
         return {
