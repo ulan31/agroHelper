@@ -28,6 +28,7 @@ import buttonLevel2 from "@/components/buttonLevel2.vue";
 import footerBottom from "@/components/footerBottom.vue";
 import modal from "@/components/modalMessage.vue";
 import audioFile from "@/components/audoFile.vue";
+import axios from "axios";
 export default {
     components: {
         logo,
@@ -65,11 +66,18 @@ export default {
             ]
         }
     },
+    mounted() {
+        this.fetchData();
+    },
     methods: {
         openModal(e) {
             console.log(e);
             this.$refs.modal.openModal(e);
         },
+        async fetchData() {
+            const response = await axios.get("http://172.201.225.48:5003/fresh/13427");
+            console.log('response', response);
+        }
     }
 }
 </script>
