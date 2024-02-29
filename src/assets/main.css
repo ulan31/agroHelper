@@ -31,3 +31,12 @@ body {
 .mt-0 {
     margin-top: 0 !important;
 }
+.ml-20 {
+    margin-left: 35px;
+}
+.mr-20 {
+    margin-right: 35px;
+}
+.mt-16 {
+    margin-top: 16px;
+}

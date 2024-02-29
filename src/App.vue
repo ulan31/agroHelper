@@ -10,6 +10,8 @@
         <messages-block :message="message1"/>
         <messages-block :message="message2" class="mt-0"/>
         <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
+        <button-level-1/>
+        <button-level-2 class="mt-16"/>
     </section>
   </main>
 </template>
@@ -18,11 +20,15 @@
 import logo from "@/components/logo.vue";
 import messages from "@/components/messages.vue";
 import messagesBlock from "@/components/messagesBlock.vue";
+import buttonLevel1 from "@/components/buttonLevel1.vue";
+import buttonLevel2 from "@/components/buttonLevel2.vue";
 export default {
     components: {
         logo,
         messages,
-        messagesBlock
+        messagesBlock,
+        buttonLevel1,
+        buttonLevel2
     },
     data() {
         return {
