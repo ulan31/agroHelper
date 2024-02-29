@@ -1,25 +1,10 @@
 <template>
     <article class="message">
-        <div class="message-block">
-            <span class="message-title">Date:</span> <span class="message-text">08/02/2024</span>
-        </div>
-        <div class="message-block">
-            <span class="message-title">Deal_ID:</span> <span class="message-text">12345678</span>
-        </div>
-        <div class="message-block">
-            <span class="message-title">Call_ID:</span> <span class="message-text">12345678</span>
-        </div>
-        <div class="message-block">
-            <span class="message-title">Farmer_ID:</span> <span class="message-text">12345678 (Иван Иванов)</span>
-        </div>
-        <div class="message-block">
-            <span class="message-title">Crop_ID:</span> <span class="message-text">123 (Подсолнечник)</span>
-        </div>
-        <div class="message-block">
-            <span class="message-title">Storage_ID:</span> <span class="message-text">123</span>
+        <div v-for="(item, idx) in message" :key="idx" class="message-block">
+            <span class="message-title">{{item.title}}</span> <span class="message-text">{{item.text}}</span>
         </div>
         <date :date="'08/02/2024'" :time="'10:40'"/>
-        <what-sapp-icon/>
+        <what-sapp-icon v-if="isShowWhatSapp"/>
     </article>
 </template>
 
@@ -30,6 +15,13 @@ export default {
     components: {
         date,
         whatSappIcon
+    },
+    props: {
+        message: Array,
+        isShowWhatSapp: {
+            type: Boolean,
+            default: true
+        }
     }
 }
 </script>
