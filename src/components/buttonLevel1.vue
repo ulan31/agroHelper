@@ -23,7 +23,8 @@
     outline: none;
     padding: 8px 20px;
     border-radius: 8px;
-    border: 1px solid #323338;
+    border: 1px solid #C5C7D0;
+    font-weight: 600;
 }
 .button-btn:hover {
     background-color: #323338;

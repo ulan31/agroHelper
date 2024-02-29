@@ -12,6 +12,7 @@
         <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
         <button-level-1/>
         <button-level-2 class="mt-16"/>
+        <footer-bottom class="mt-16"/>
     </section>
   </main>
 </template>
@@ -22,13 +23,15 @@ import messages from "@/components/messages.vue";
 import messagesBlock from "@/components/messagesBlock.vue";
 import buttonLevel1 from "@/components/buttonLevel1.vue";
 import buttonLevel2 from "@/components/buttonLevel2.vue";
+import footerBottom from "@/components/footerBottom.vue";
 export default {
     components: {
         logo,
         messages,
         messagesBlock,
         buttonLevel1,
-        buttonLevel2
+        buttonLevel2,
+        footerBottom
     },
     data() {
         return {
@@ -80,6 +83,7 @@ export default {
     border: 1px solid #E6E9EF;
     border-radius: 16px;
     overflow-y: auto;
+    position: relative;
   }
 
   .date {
