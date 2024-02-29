@@ -7,27 +7,7 @@
     </section>
     <section class="main-right">
         <span class="date">08/02/2024</span>
-
-        <article class="message">
-            <div class="message-block">
-                <span class="message-title">Date:</span> <span class="message-text">08/02/2024</span>
-            </div>
-            <div class="message-block">
-                <span class="message-title">Deal_ID:</span> <span class="message-text">12345678</span>
-            </div>
-            <div class="message-block">
-                <span class="message-title">Call_ID:</span> <span class="message-text">12345678</span>
-            </div>
-            <div class="message-block">
-                <span class="message-title">Farmer_ID:</span> <span class="message-text">12345678 (Иван Иванов)</span>
-            </div>
-            <div class="message-block">
-                <span class="message-title">Crop_ID:</span> <span class="message-text">123 (Подсолнечник)</span>
-            </div>
-            <div class="message-block">
-                <span class="message-title">Storage_ID:</span> <span class="message-text">123</span>
-            </div>
-        </article>
+        <messages-block/>
     </section>
   </main>
 </template>
@@ -35,10 +15,12 @@
 <script>
 import logo from "@/components/logo.vue";
 import messages from "@/components/messages.vue";
+import messagesBlock from "@/components/messagesBlock.vue";
 export default {
     components: {
         logo,
-        messages
+        messages,
+        messagesBlock
     }
 }
 </script>
@@ -57,43 +39,19 @@ export default {
 
   .main-right {
     display: flex;
-    align-items: center;
-    justify-content: center;
-      flex-direction: column;
-    width: 1140px;
-    margin: 30px;
+    flex-direction: column;
+    width: 100%;
+    margin: 24px 30px 30px 30px;
     background-color: #F5F6F8;
     border: 1px solid #E6E9EF;
+    border-radius: 16px;
+    overflow-y: auto;
   }
 
   .date {
       font-size: 14px;
       color: #676879;
+      text-align: center;
+      margin-top: 39px;
   }
-
-  .message {
-      max-width: 100%;
-      background-color: #E6E9EF;
-      padding: 16px 10px 16px 10px;
-      border-radius: 16px;
-  }
-  .message-block {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-  }
-  .message-title {
-      font-weight: 500;
-      font-size: 14px;
-      color: #000;
-  }
-
-  .message-text {
-      font-size: 14px;
-      color: #000;
-  }
-
-
 </style>
-<script setup>
-</script>

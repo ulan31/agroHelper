@@ -11,7 +11,7 @@
         gap: 8px;
         align-items: center;
         justify-content: center;
-        padding: 30px 38px 15px 38px;
+        padding: 20px 38px 8px 38px;
         border-bottom: 1px solid #E6E9EF;
     }
 
