@@ -19,14 +19,17 @@
             <span class="message-title">Storage_ID:</span> <span class="message-text">123</span>
         </div>
         <date :date="'08/02/2024'" :time="'10:40'"/>
+        <what-sapp-icon/>
     </article>
 </template>
 
 <script>
 import date from "./date.vue";
+import whatSappIcon from "./whatSappIcon.vue";
 export default {
     components: {
-        date
+        date,
+        whatSappIcon
     }
 }
 </script>
