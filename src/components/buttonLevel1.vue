@@ -1,13 +1,26 @@
 <template>
     <div class="button">
-        <button class="button-btn ml-20">Запланировать звонок</button>
+        <button class="button-btn ml-20" @click="goTo">Запланировать звонок</button>
         <button class="button-btn">Звонок роботом</button>
-        <button class="button-btn">Звонок</button>
+        <button class="button-btn" @click="openModal">Звонок</button>
         <button class="button-btn">Товар продан</button>
         <button class="button-btn">Внести товар</button>
         <button class="button-btn mr-20">Отбор пробы</button>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        openModal() {
+            this.$emit('openModal', true);
+        },
+        goTo() {
+            window.open('https://www.google.ru/?hl=ru', '_blank');
+        }
+    }
+}
+</script>
 
 <style scoped>
 .button {

@@ -10,10 +10,11 @@
         <messages-block :message="message1"/>
         <messages-block :message="message2" class="mt-0"/>
         <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
-        <button-level-1/>
+        <button-level-1 @openModal="openModal"/>
         <button-level-2 class="mt-16"/>
         <footer-bottom class="mt-16"/>
     </section>
+    <modal ref="modal"/>
   </main>
 </template>
 
@@ -24,6 +25,7 @@ import messagesBlock from "@/components/messagesBlock.vue";
 import buttonLevel1 from "@/components/buttonLevel1.vue";
 import buttonLevel2 from "@/components/buttonLevel2.vue";
 import footerBottom from "@/components/footerBottom.vue";
+import modal from "@/components/modalMessage.vue";
 export default {
     components: {
         logo,
@@ -31,7 +33,8 @@ export default {
         messagesBlock,
         buttonLevel1,
         buttonLevel2,
-        footerBottom
+        footerBottom,
+        modal
     },
     data() {
         return {
@@ -58,6 +61,12 @@ export default {
                 {title: 'Результат:', text: 'готов обсуждать продажу по данной или другой цене - нужно рассчитать индивидуальную цену'},
             ]
         }
+    },
+    methods: {
+        openModal(e) {
+            console.log(e);
+            this.$refs.modal.openModal(e);
+        },
     }
 }
 </script>
