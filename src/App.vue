@@ -3,6 +3,7 @@
     <section class="main-left">
         <logo/>
         <messages/>
+        <messages/>
     </section>
     <section class="main-right">
         <span class="date">08/02/2024</span>
