@@ -8,6 +8,7 @@
     <section class="main-right">
         <span class="date">08/02/2024</span>
         <messages-block/>
+        <messages-block class="mt-0"/>
     </section>
   </main>
 </template>

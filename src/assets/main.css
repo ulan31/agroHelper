@@ -27,3 +27,7 @@ body {
     font-size: 14px;
     font-style: normal;
 }
+
+.mt-0 {
+    margin-top: 0 !important;
+}
