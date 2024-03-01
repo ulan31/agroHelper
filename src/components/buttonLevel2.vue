@@ -1,10 +1,19 @@
 <template>
     <div class="button">
-        <button class="button-btn">Встречное предложение</button>
-        <button class="button-btn">Фильтр по культурам</button>
-        <button class="button-btn">Анализ</button>
+        <button class="button-btn" @click="goTo">Встречное предложение</button>
+        <button class="button-btn" @click="goTo">Анализ</button>
     </div>
 </template>
+
+<script>
+export default {
+    methods: {
+        goTo() {
+            window.open('https://www.google.ru/?hl=ru', '_blank');
+        }
+    }
+}
+</script>
 
 <style scoped>
 .button {
@@ -28,5 +37,3 @@
     color: #fff;
 }
 </style>
-<script setup>
-</script>

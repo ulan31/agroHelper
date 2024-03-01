@@ -31,8 +31,8 @@ l-32 32 -108 0 c-91 0 -116 -4 -153 -22z"/>
 <style scoped>
 .whatsapp {
     position: absolute;
-    right: 5%;
-    bottom: 35%;
+    right: 10%;
+    bottom: 0;
     transform: translate(-50%, -50%);
 }
 </style>

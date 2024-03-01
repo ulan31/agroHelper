@@ -1,7 +1,7 @@
 <template>
     <div class="audio">
-        <audio controls src="https://file-examples.com/storage/fe98e6ab1965df346a899de/2017/11/file_example_MP3_700KB.mp3"></audio>
-        <date :date="'08/02/2024'" :time="'10:40'"/>
+        <audio controls :src="src"></audio>
+<!--        <date :date="'08/02/2024'" :time="'10:40'"/>-->
     </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
     components: {
         date,
     },
+    props: {
+        src: ''
+    }
 }
 </script>
 

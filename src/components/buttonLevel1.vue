@@ -1,11 +1,11 @@
 <template>
     <div class="button">
-        <button class="button-btn ml-20" @click="goTo">Запланировать звонок</button>
-        <button class="button-btn">Звонок роботом</button>
-        <button class="button-btn" @click="openModal">Звонок</button>
-        <button class="button-btn">Товар продан</button>
-        <button class="button-btn">Внести товар</button>
-        <button class="button-btn mr-20">Отбор пробы</button>
+        <button class="button-btn ml-20" @click="openModal">Запланировать звонок</button>
+        <button class="button-btn" @click="goTo">Звонок роботом</button>
+        <button class="button-btn" @click="goTo">Звонок</button>
+        <button class="button-btn" @click="goTo">Товар продан</button>
+        <button class="button-btn" @click="goTo">Внести товар</button>
+        <button class="button-btn mr-20" @click="goTo">Отбор пробы</button>
     </div>
 </template>
 

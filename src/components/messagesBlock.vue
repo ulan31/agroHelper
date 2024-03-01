@@ -1,9 +1,24 @@
 <template>
     <article class="message">
-        <div v-for="(item, idx) in message" :key="idx" class="message-block">
-            <span class="message-title">{{item.title}}</span> <span class="message-text">{{item.text}}</span>
+        <div class="message-block">
+            <span class="message-title">Дата:</span> <span class="message-text">{{ '01.03.2024' }}</span>
         </div>
-        <date :date="'08/02/2024'" :time="'10:40'"/>
+        <div class="message-block">
+            <span class="message-title">Номер сделки:</span> <span class="message-text">{{ message.deail_id }}</span>
+        </div>
+        <div class="message-block">
+            <span class="message-title">Номер звонка:</span> <span class="message-text">{{ message.id }}</span>
+        </div>
+        <div class="message-block">
+            <span class="message-title">ФИО Фермера:</span> <span class="message-text">{{ message.title }}</span>
+        </div>
+        <div class="message-block">
+            <span class="message-title">Культура:</span> <span class="message-text">{{ message.culture }}</span>
+        </div>
+        <div class="message-block">
+            <span class="message-title">Сборка:</span> <span class="message-text">{{ message.crm_entity_id }}</span>
+        </div>
+        <date :date="'01.03.2024'" :time="'10:40'"/>
         <what-sapp-icon v-if="isShowWhatSapp"/>
     </article>
 </template>
@@ -11,6 +26,7 @@
 <script>
 import date from "./date.vue";
 import whatSappIcon from "./whatSappIcon.vue";
+
 export default {
     components: {
         date,
@@ -22,6 +38,9 @@ export default {
             type: Boolean,
             default: true
         }
+    },
+    mounted() {
+        console.log('dsa', this.message)
     }
 }
 </script>
@@ -35,16 +54,19 @@ export default {
     margin: 16px 26px;
     position: relative;
 }
+
 .message-block {
     display: flex;
     align-items: center;
     gap: 5px;
 }
+
 .message-title {
     font-weight: 500;
     font-size: 14px;
     color: #000;
 }
+
 .message-text {
     font-size: 14px;
     color: #000;

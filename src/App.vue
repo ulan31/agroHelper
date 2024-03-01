@@ -13,11 +13,11 @@
                     <span class="date">{{ new Intl.DateTimeFormat("ru").format(date) }}</span>
 
                     <div class="height-auto">
-                        <messages-block :message="message1"/>
-                        <messages-block :message="message2" class="mt-0"/>
-                        <audio-file class="mt-0"/>
-                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
-                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
+                        <messages-block :message="message"/>
+                        <audio-file :src="audioFile" class="mt-0"/>
+                        <result1 :result="result1"/>
+<!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
+<!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
                     </div>
 
 
@@ -47,7 +47,8 @@ import footerBottom from "@/components/footerBottom.vue";
 import modal from "@/components/modalMessage.vue";
 import audioFile from "@/components/audoFile.vue";
 import axios from "axios";
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
+import result1 from "@/components/result1.vue";
 
 export default {
     components: {
@@ -59,7 +60,8 @@ export default {
         footerBottom,
         modal,
         audioFile,
-        PulseLoader
+        PulseLoader,
+        result1
     },
     data() {
         return {
@@ -74,28 +76,9 @@ export default {
                 count: ''
             },
             messages: [],
-            message1: [
-                {title: 'Date:', text: '08/02/2024'},
-                {title: 'Deal_ID:', text: '12345678'},
-                {title: 'Call_ID:', text: '12345678'},
-                {title: 'Farmer_ID:', text: '12345678 (Иван Иванов)'},
-                {title: 'Crop_ID:', text: '123 (Подсолнечник)'},
-                {title: 'Storage_ID:', text: '123'},
-            ],
-            message2: [
-                {title: 'Робот:', text: 'Алло.'},
-                {title: 'Фермер:', text: 'Алло.'},
-                {title: 'Робот:', text: 'Здравствуйте, это Сергей из Олсан. Мы закупаем подсолнечник у себя на воротах. Удобно сейчас?'},
-                {title: 'Фермер:', text: 'Что подсолнечник?'},
-                {title: 'Робот:', text: 'Мы предлагаем у нас на воротах. Без НДС 25,6 рублей за килограмм, а с НДС это 28,2. Будете продавать?'},
-                {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
-                {title: 'Робот:', text: 'Хорошо, давайте попробую согласовать вам индивидуальную цену.'},
-                {title: 'Фермер:', text: 'Ну хорошо, согласовывайте.'},
-                {title: 'Робот:', text: 'Тогда вернусь позже с расчетом. До связи.'},
-            ],
-            message3: [
-                {title: 'Результат:', text: 'готов обсуждать продажу по данной или другой цене - нужно рассчитать индивидуальную цену'},
-            ]
+            message: [],
+            audioFile: '',
+            result1: '',
         }
     },
     mounted() {
@@ -124,14 +107,18 @@ export default {
             this.$refs.modal.openModal(e);
         },
         async getRecords() {
-            this.loading1 = true;
+            this.loading = true;
             try {
                 const response = await axios.get("https://172.201.225.48:5003/fresh/13427");
                 if(response?.data) {
-                    this.messages = response.data;
+                    this.messages = response.data.records;
+                    this.message = this.messages[0];
+                    this.audioFile = this.message.url;
+                    this.result1 = this.message.responce;
+                    this.loading = false;
                 }
             } catch (e) {
-                this.loading1 = false;
+                this.loading = false;
             }
 
         }
