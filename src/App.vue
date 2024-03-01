@@ -75,7 +75,7 @@ export default {
             this.$refs.modal.openModal(e);
         },
         async fetchData() {
-            const response = await axios.get("http://172.201.225.48:5003/fresh/13427");
+            const response = await axios.get("https://172.201.225.48:5003/fresh/13427");
             console.log('response', response);
         }
     }
