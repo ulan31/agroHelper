@@ -14,6 +14,7 @@
 
                     <div class="height-auto">
                         <messages-block :message="message"/>
+                        <transcript :message="message2"/>
                         <audio-file :src="audioFile" class="mt-0"/>
                         <result1 :result="result1"/>
                         <result2/>
@@ -53,6 +54,7 @@ import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import result1 from "@/components/result1.vue";
 import result2 from "@/components/result2.vue";
 import result3 from "@/components/result3.vue";
+import transcript from "@/components/transcript.vue";
 
 export default {
     components: {
@@ -67,7 +69,8 @@ export default {
         PulseLoader,
         result1,
         result2,
-        result3
+        result3,
+        transcript
     },
     data() {
         return {
@@ -85,6 +88,14 @@ export default {
             message: [],
             audioFile: '',
             result1: '',
+            message2: [
+                {title: 'Робот:', text: 'Алло.'},
+                {title: 'Фермер:', text: 'Алло.'},
+                {title: 'Робот:', text: 'Здравствуйте, это Сергей из Олсан. Мы закупаем подсолнечник у себя на воротах. Удобно сейчас?'},
+                {title: 'Фермер:', text: 'Что подсолнечник?'},
+                {title: 'Робот:', text: 'Мы предлагаем у нас на воротах. Без НДС 25,6 рублей за килограмм, а с НДС это 28,2. Будете продавать?'},
+                {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
+            ],
         }
     },
     mounted() {
@@ -144,7 +155,7 @@ export default {
   }
 
   .main-left {
-    height: 100vh;
+    min-height: 100vh;
     flex: 0 1 240px;
     background-color: #F5F6F8;
     border-right: 1px solid #E6E9EF;
