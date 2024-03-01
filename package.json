@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:pages": "OUT_DIR=docs ASSETS_BASE=/agroHelper/ vite build"
   },
   "dependencies": {
     "axios": "^1.6.7",
