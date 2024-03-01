@@ -94,7 +94,7 @@ export default {
         async getCount() {
             this.loading = true;
             try {
-                const response = await axios.get("https://172.201.225.48:5003/counters/13427");
+                const response = await axios.get("http://172.201.225.48:5003/counters/13427");
                 console.log(response.data);
                 if(response?.data) {
                     const { fresh_len, pending_len} = response?.data;
@@ -115,7 +115,7 @@ export default {
         async getRecords() {
             this.loading = true;
             try {
-                const response = await axios.get("https://172.201.225.48:5003/fresh/13427");
+                const response = await axios.get("http://172.201.225.48:5003/fresh/13427");
                 if(response?.data) {
                     this.messages = response.data.records;
                     this.message = this.messages[0];
