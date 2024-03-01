@@ -16,6 +16,8 @@
                         <messages-block :message="message"/>
                         <audio-file :src="audioFile" class="mt-0"/>
                         <result1 :result="result1"/>
+                        <result2/>
+                        <result3/>
 <!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
 <!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
                     </div>
@@ -49,6 +51,8 @@ import audioFile from "@/components/audoFile.vue";
 import axios from "axios";
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import result1 from "@/components/result1.vue";
+import result2 from "@/components/result2.vue";
+import result3 from "@/components/result3.vue";
 
 export default {
     components: {
@@ -61,7 +65,9 @@ export default {
         modal,
         audioFile,
         PulseLoader,
-        result1
+        result1,
+        result2,
+        result3
     },
     data() {
         return {
