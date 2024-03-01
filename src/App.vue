@@ -8,15 +8,28 @@
                 <messages :title="leftMessages2.title" :count="leftMessages2.count"/>
             </section>
             <section class="main-right">
-<!--                <img src="@/assets/logo.svg"/>-->
-                <span class="date">{{ new Intl.DateTimeFormat("ru").format(date) }}</span>
-                <messages-block :message="message1"/>
-                <messages-block :message="message2" class="mt-0"/>
-                <audio-file class="mt-0"/>
-                <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
-                <button-level-1 @openModal="openModal"/>
-                <button-level-2 class="mt-16"/>
-                <footer-bottom class="mt-16"/>
+                <img class="img-block" v-if="messages.length === 0" src="@/assets/logo.svg"/>
+                <template v-else>
+                    <span class="date">{{ new Intl.DateTimeFormat("ru").format(date) }}</span>
+
+                    <div class="height-auto">
+                        <messages-block :message="message1"/>
+                        <messages-block :message="message2" class="mt-0"/>
+                        <audio-file class="mt-0"/>
+                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
+                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>
+                    </div>
+
+
+
+                    <div>
+                        <button-level-1 @openModal="openModal"/>
+                        <button-level-2 class="mt-16"/>
+                        <footer-bottom class="mt-16"/>
+                    </div>
+                </template>
+
+
             </section>
             <modal ref="modal"/>
         </main>
@@ -51,6 +64,7 @@ export default {
     data() {
         return {
             loading: false,
+            loading1: false,
             leftMessages1: {
                 title: 'Сегодняшние сообщения',
                 count: ''
@@ -59,6 +73,7 @@ export default {
                 title: 'Плановые сообщения',
                 count: ''
             },
+            messages: [],
             message1: [
                 {title: 'Date:', text: '08/02/2024'},
                 {title: 'Deal_ID:', text: '12345678'},
@@ -109,8 +124,16 @@ export default {
             this.$refs.modal.openModal(e);
         },
         async getRecords() {
-            const response = await axios.get("https://172.201.225.48:5003/fresh/13427");
-            console.log('response', response);
+            this.loading1 = true;
+            try {
+                const response = await axios.get("https://172.201.225.48:5003/fresh/13427");
+                if(response?.data) {
+                    this.messages = response.data;
+                }
+            } catch (e) {
+                this.loading1 = false;
+            }
+
         }
     }
 }
@@ -152,4 +175,27 @@ export default {
       text-align: center;
       margin-top: 39px;
   }
+  .img-block {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+  .footer-block {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      right: 0;
+  }
+
+@media (max-width: 992px) {
+    .height-auto {
+        overflow-y: auto;
+    }
+}
 </style>

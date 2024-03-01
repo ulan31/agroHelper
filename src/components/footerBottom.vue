@@ -20,10 +20,7 @@
         margin-left: 26px;
         margin-right: 26px;
         justify-content: space-between;
-        position: absolute;
-        bottom: 30px;
-        left: 0;
-        right: 0;
+
     }
     .footer-btn {
         background-color: #FFDE5F;
