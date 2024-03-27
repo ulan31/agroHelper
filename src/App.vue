@@ -8,6 +8,7 @@
                     :title="leftMessages1.title"
                     :count="leftMessages1.count"
                     :sub-menus="subMenus"
+                    @clickItem="clickItem"
                 />
                 <messages :title="leftMessages2.title" :count="leftMessages2.count"/>
             </section>
@@ -104,7 +105,8 @@ export default {
             //     {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
             // ],
             id: null,
-            subMenus: null
+            subMenus: null,
+            isShow: true
         }
     },
     mounted() {
@@ -180,6 +182,9 @@ export default {
 
             console.log(Object.values(result));
             this.subMenus = Object.values(result);
+        },
+        clickItem() {
+            this.isShow = false;
         }
     }
 }

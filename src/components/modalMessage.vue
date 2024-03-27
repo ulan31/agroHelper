@@ -12,10 +12,8 @@
                     </svg>
                 </span>
             </header>
-            <select class="select">
-                <option>14/02/2024</option>
-                <option>14/02/2024</option>
-                <option>14/02/2024</option>
+            <select class="select" v-model="selectedDate">
+                <option v-for="date in dates" :key="date">{{ formatDate(date) }}</option>
             </select>
             <button class="footer-btn">
                 <span class="footer-btn-text">Запланировать</span>
@@ -28,8 +26,15 @@
 export default {
     data() {
         return {
-            isOpen: false
+            isOpen: false,
+            selectedDate: null,
+            dates: []
         }
+    },
+    mounted() {
+        this.fillDatesArray();
+        const today = new Date();
+        this.selectedDate = this.formatDate(today);
     },
     methods: {
         openModal(e) {
@@ -37,6 +42,21 @@ export default {
         },
         closeModal() {
             this.isOpen = false;
+        },
+        fillDatesArray() {
+            const currentDate = new Date();
+            for (let i = 0; i < 14; i++) {
+                const newDate = new Date(currentDate);
+                newDate.setDate(newDate.getDate() + i);
+                this.dates.push(newDate);
+            }
+        },
+        formatDate(date) {
+            // Функция для форматирования даты в виде "dd/mm/yyyy"
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
         }
     }
 }
