@@ -4,7 +4,11 @@
         <main v-else class="main">
             <section class="main-left">
                 <logo/>
-                <messages @click="getRecords" :title="leftMessages1.title" :count="leftMessages1.count"/>
+                <messages
+                    :title="leftMessages1.title"
+                    :count="leftMessages1.count"
+                    :sub-menus="subMenus"
+                />
                 <messages :title="leftMessages2.title" :count="leftMessages2.count"/>
             </section>
             <section class="main-right">
@@ -100,11 +104,13 @@ export default {
             //     {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
             // ],
             id: null,
+            subMenus: null
         }
     },
     mounted() {
         this.getIdFromUrl();
         this.getCount();
+        this.getRecords();
     },
     methods: {
         getIdFromUrl() {
@@ -142,6 +148,9 @@ export default {
                 const response = await axios.get(`http://172.201.225.48:5003/fresh/${this.id}`);
                 if(response?.data) {
                     this.messages = response.data.records;
+                    if(this.messages.length > 0) {
+                        this.getSubMenu(this.messages);
+                    }
                     this.message = this.messages[0];
                     this.message2 = this.messages[0]?.text;
                     this.audioFile = this.message.url;
@@ -154,6 +163,23 @@ export default {
                 this.loading = false;
             }
 
+        },
+        getSubMenu(arr) {
+            const result = {};
+
+            arr.forEach(obj => {
+                if(!result[obj.culture]) {
+                    result[obj.culture] = {
+                        title: obj.culture,
+                        count: 1
+                    }
+                } else {
+                    result[obj.culture].count++;
+                }
+            });
+
+            console.log(Object.values(result));
+            this.subMenus = Object.values(result);
         }
     }
 }

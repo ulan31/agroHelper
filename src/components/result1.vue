@@ -25,7 +25,6 @@ export default {
         }
     },
     mounted() {
-        console.log('dsa1', this.result)
     }
 }
 </script>
