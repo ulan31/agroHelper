@@ -1,10 +1,10 @@
 <template>
     <article class="message">
         <div class="message-block">
-            <span class="message-title">Дата:</span> <span class="message-text">{{ '01.03.2024' }}</span>
+            <span class="message-title">Дата:</span> <span class="message-text">{{ new Intl.DateTimeFormat('ru').format(new Date(message.date_create)) }}</span>
         </div>
         <div class="message-block">
-            <span class="message-title">Номер сделки:</span> <span class="message-text">{{ message.deail_id }}</span>
+            <span class="message-title">Номер сделки:</span> <span class="message-text">{{ message.deal_id }}</span>
         </div>
         <div class="message-block">
             <span class="message-title">Номер звонка:</span> <span class="message-text">{{ message.id }}</span>
@@ -16,7 +16,7 @@
             <span class="message-title">Культура:</span> <span class="message-text">{{ message.culture }}</span>
         </div>
         <div class="message-block">
-            <span class="message-title">Сборка:</span> <span class="message-text">{{ message.crm_entity_id }}</span>
+            <span class="message-title">Склад:</span> <span class="message-text">{{ message.location }}</span>
         </div>
         <date :date="'01.03.2024'" :time="'10:40'"/>
         <what-sapp-icon v-if="isShowWhatSapp"/>
