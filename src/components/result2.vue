@@ -1,7 +1,7 @@
 <template>
     <article class="message">
         <div class="message-block">
-            <span class="message-title">Рекомендация:</span> <span class="message-text">{{ 'звонок, встречное предложение' }}</span>
+            <span class="message-title">Рекомендация:</span> <span class="message-text">{{ result }}</span>
         </div>
         <date :date="'01.03.2024'" :time="'10:40'"/>
         <what-sapp-icon v-if="isShowWhatSapp"/>
@@ -18,6 +18,7 @@ export default {
         whatSappIcon
     },
     props: {
+        result: '',
         isShowWhatSapp: {
             type: Boolean,
             default: true

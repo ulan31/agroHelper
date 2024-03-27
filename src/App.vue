@@ -17,8 +17,8 @@
                         <transcript :message="message2"/>
                         <audio-file :src="audioFile" class="mt-0"/>
                         <result1 :result="result1"/>
-                        <result2/>
-                        <result3/>
+                        <result2 :result="result2"/>
+                        <result3 :result="result3"/>
 <!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
 <!--                        <messages-block :message="message3" :isShowWhatSapp="false" class="mt-0"/>-->
                     </div>
@@ -88,6 +88,8 @@ export default {
             message: [],
             audioFile: '',
             result1: '',
+            result2: '',
+            result3: '',
             message2: '',
             // message2: [
             //     {title: 'Робот:', text: 'Алло.'},
@@ -143,7 +145,9 @@ export default {
                     this.message = this.messages[0];
                     this.message2 = this.messages[0]?.text;
                     this.audioFile = this.message.url;
-                    this.result1 = this.message.responce;
+                    this.result1 = this.messages[0]?.recommendation1;
+                    this.result2 = this.messages[0]?.recommendation2;
+                    this.result3 = this.messages[0]?.recommendation3;
                     this.loading = false;
                 }
             } catch (e) {

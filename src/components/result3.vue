@@ -1,7 +1,7 @@
 <template>
     <article class="message">
         <div class="message-block">
-            <span class="message-title">Доп. рекомендация:</span> <span class="message-text">{{ 'ВП(встречное предложение)" для того, чтобы сделать в системе встречное предложение цены с места от фермера, чтобы рассмотреть его в расчётах предложений покупателям и выбрать лучшего из них. Это поможет активизировать переговоры с фермером и выбрать оптимальную цену для дальнейшей продажи продукции.' }}</span>
+            <span class="message-title">Доп. рекомендация:</span> <span class="message-text">{{ result }}</span>
         </div>
         <date :date="'01.03.2024'" :time="'10:40'"/>
         <what-sapp-icon v-if="isShowWhatSapp"/>
@@ -11,13 +11,20 @@
 <script>
 import date from "./date.vue";
 import whatSappIcon from "./whatSappIcon.vue";
+import result2 from "./result2.vue";
 
 export default {
+    computed: {
+        result2() {
+            return result2
+        }
+    },
     components: {
         date,
         whatSappIcon
     },
     props: {
+        result: '',
         isShowWhatSapp: {
             type: Boolean,
             default: true
