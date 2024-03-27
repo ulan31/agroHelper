@@ -1,6 +1,6 @@
 <template>
     <div class="button">
-        <button class="button-btn ml-20" @click="openModal">Запланировать звонок</button>
+        <button class="button-btn ml-20 button-line" @click="openModal">Запланировать звонок</button>
         <button class="button-btn" @click="goTo">Звонок роботом</button>
         <button class="button-btn" @click="goTo">Звонок</button>
         <button class="button-btn" @click="goTo">Товар продан</button>
@@ -42,5 +42,8 @@ export default {
 .button-btn:hover {
     background-color: #323338;
     color: #fff;
+}
+.button-line {
+    border: 2px solid #FFDE5F;
 }
 </style>
