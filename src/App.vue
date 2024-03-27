@@ -88,14 +88,15 @@ export default {
             message: [],
             audioFile: '',
             result1: '',
-            message2: [
-                {title: 'Робот:', text: 'Алло.'},
-                {title: 'Фермер:', text: 'Алло.'},
-                {title: 'Робот:', text: 'Здравствуйте, это Сергей из Олсан. Мы закупаем подсолнечник у себя на воротах. Удобно сейчас?'},
-                {title: 'Фермер:', text: 'Что подсолнечник?'},
-                {title: 'Робот:', text: 'Мы предлагаем у нас на воротах. Без НДС 25,6 рублей за килограмм, а с НДС это 28,2. Будете продавать?'},
-                {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
-            ],
+            message2: '',
+            // message2: [
+            //     {title: 'Робот:', text: 'Алло.'},
+            //     {title: 'Фермер:', text: 'Алло.'},
+            //     {title: 'Робот:', text: 'Здравствуйте, это Сергей из Олсан. Мы закупаем подсолнечник у себя на воротах. Удобно сейчас?'},
+            //     {title: 'Фермер:', text: 'Что подсолнечник?'},
+            //     {title: 'Робот:', text: 'Мы предлагаем у нас на воротах. Без НДС 25,6 рублей за килограмм, а с НДС это 28,2. Будете продавать?'},
+            //     {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
+            // ],
             id: null,
         }
     },
@@ -140,6 +141,7 @@ export default {
                 if(response?.data) {
                     this.messages = response.data.records;
                     this.message = this.messages[0];
+                    this.message2 = this.messages[0]?.text;
                     this.audioFile = this.message.url;
                     this.result1 = this.message.responce;
                     this.loading = false;

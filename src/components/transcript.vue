@@ -1,8 +1,10 @@
 <template>
     <article class="message">
-        <div v-for="(item, idx) in message" :key="idx" class="message-block">
-            <span class="message-title">{{item.title}}</span> <span class="message-text">{{item.text}}</span>
+        <div class="message-block" v-html="message">
         </div>
+<!--        <div v-for="(item, idx) in message" :key="idx" class="message-block">-->
+<!--            <span class="message-title">{{item.title}}</span> <span class="message-text">{{item.text}}</span>-->
+<!--        </div>-->
         <date :date="'08/02/2024'" :time="'10:40'"/>
         <what-sapp-icon v-if="isShowWhatSapp"/>
     </article>
