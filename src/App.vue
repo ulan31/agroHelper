@@ -31,7 +31,7 @@
 
 
                     <div>
-                        <button-level-1 @openModal="openModal"/>
+                        <button-level-1 :dealId="dealId" @openModal="openModal"/>
                         <button-level-2 class="mt-16"/>
                         <footer-bottom class="mt-16"/>
                     </div>
@@ -106,7 +106,8 @@ export default {
             // ],
             id: null,
             subMenus: null,
-            isShow: true
+            isShow: true,
+            dealId: null
         }
     },
     mounted() {
@@ -159,6 +160,7 @@ export default {
                     this.result1 = this.messages[0]?.recommendation1;
                     this.result2 = this.messages[0]?.recommendation2;
                     this.result3 = this.messages[0]?.recommendation3;
+                    this.dealId = this.messages[0]?.id;
                     this.loading = false;
                 }
             } catch (e) {
