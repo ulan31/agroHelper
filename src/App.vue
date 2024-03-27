@@ -96,20 +96,30 @@ export default {
                 {title: 'Робот:', text: 'Мы предлагаем у нас на воротах. Без НДС 25,6 рублей за килограмм, а с НДС это 28,2. Будете продавать?'},
                 {title: 'Фермер:', text: 'У меня не на чем доставлять его.'},
             ],
+            id: null,
         }
     },
     mounted() {
+        this.getIdFromUrl();
         this.getCount();
     },
     methods: {
+        getIdFromUrl() {
+          const urlParams =  new URLSearchParams(window.location.search);
+          const paramValue = urlParams.get("id");
+          if(urlParams.has("id")) {
+              this.id = paramValue;
+          } else {
+              this.id = "0d8d2539-6826-441a-9dd1-af24fa219da2";
+          }
+        },
         async getCount() {
             this.loading = true;
             try {
-                const response = await axios.get("http://172.201.225.48:5003/counters/13427");
+                const response = await axios.get(`http://172.201.225.48:5003/counters/${this.id}`);
                 console.log(response.data);
                 if(response?.data) {
                     const { fresh_len, pending_len} = response?.data;
-                    console.log('here');
                     this.loading = false;
                     this.leftMessages1.count = fresh_len;
                     this.leftMessages2.count =  pending_len;
@@ -126,7 +136,7 @@ export default {
         async getRecords() {
             this.loading = true;
             try {
-                const response = await axios.get("http://172.201.225.48:5003/fresh/13427");
+                const response = await axios.get(`http://172.201.225.48:5003/fresh/${this.id}`);
                 if(response?.data) {
                     this.messages = response.data.records;
                     this.message = this.messages[0];
